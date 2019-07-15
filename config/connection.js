@@ -21,3 +21,6 @@ connection.connect(function(err) {
     }
     console.log("connected as id " + connection.threadId);
   });
+
+  //now export the module to use elsewhere//
+module.exports= connection;
