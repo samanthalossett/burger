@@ -4,7 +4,7 @@ var express= require('express');
 var app = express(); 
 var path= require('path'); // need this?
 // burger.js
-var burger= require("../models/burgerburger");
+var burger= require("../models/burger");
 
 // Create the router for the app, 
 app.get("/", function(req, res){
@@ -28,9 +28,9 @@ app.post("/api/burgers", function (req, res){
 });
 
 app.put("/api/burgers/:id", function(req,res){
-  var condition = "id" = + req.params.id;
+  var condition = "id= " + req.params.id;
   console.log("condition", condition);
-  burger.updateOne({ devoured: req.body.devoured}, condiiton, function(
+  burger.updateOne({ devoured: req.body.devoured}, condition, function(
     result
   ){
     if ((result, changedRows === 0)){
@@ -41,8 +41,8 @@ app.put("/api/burgers/:id", function(req,res){
   });
 });
 app.deleteOne(condition, function(req, res){
-  var condition = "id = " + req.params.id;
-  console.log("condiiton", condition);
+  var condition = "id= " + req.params.id;
+  console.log("condition", condition);
 
   burger.deleteOne(condition, function(result){
     if ((result, changedRows === 0)){
